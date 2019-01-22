@@ -1,0 +1,34 @@
+{
+  "name": "brain",
+  "version": "0.0.1",
+  "description": "eeg monitoring and processing for oblsk interactive brain installation project",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrqrvly/brain.git"
+  },
+  "keywords": [
+    "brain",
+    "brainwaves",
+    "eeg",
+    "oblsk",
+    "interactive",
+    "art",
+    "installation"
+  ],
+  "author": "marque reavley <mrqrvly@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mrqrvly/brain/issues"
+  },
+  "homepage": "https://github.com/mrqrvly/brain#readme",
+  "devDependencies": {
+    "express": "^4.16.4"
+  }
+}

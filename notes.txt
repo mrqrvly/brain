@@ -1,0 +1,1 @@
+look at openbci docs for new Ganglion object options;

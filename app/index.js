@@ -3,7 +3,7 @@
 const lib = require('../lib/lib'),
       express = require('express'),
       app = express(),
-      port = 12019,
+      port = 12019//,
       Ganglion = require('openbci-ganglion'),
       ganglion = new Ganglion({
         verbose: true,
@@ -17,7 +17,7 @@ lib.log("starting");
 app.get('/', (req, res) => {
   res.send('OBLSK Brain is awakening...');
   // when home route is selected, search for a Ganglion;
-  ganglion.searchStart();
+  // ganglion.searchStart();
 });
 
 // start up the express server;
@@ -31,7 +31,8 @@ ganglion.once('ganglionFound', (peripheral) => {
   ganglion.searchStop();
   // when a data sample is received from Ganglion;
   ganglion.on('sample', (sample) => {
-    lib.log(sample);
+    lib.log(JSON.stringify(sample));
+    findRange(sample.channelDataCounts);
   });
   // when Ganglion is ready to offer up the fruits of the psychic organ;
   ganglion.once('ready', () => {
@@ -40,3 +41,5 @@ ganglion.once('ganglionFound', (peripheral) => {
   // connect Ganglion to the PC etc;
   ganglion.connect(peripheral);
 });
+
+ganglion.searchStart();

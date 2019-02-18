@@ -8,7 +8,13 @@ const lib = require('../lib/lib'),
       ganglion = new Ganglion({
         verbose: true,
         sendCounts: true
-      });
+      }),
+      osc = require ('osc'),
+        udpPort = new osc.UDPPort({
+          localAddress: "localhost",
+          localPort: 8081,
+          metadata: true
+        });
 
 // start;
 lib.log("starting");
@@ -33,6 +39,7 @@ ganglion.once('ganglionFound', (peripheral) => {
   ganglion.on('sample', (sample) => {
     // lib.log(JSON.stringify(sample));
     let eegConverted = lib.convertEegInts(sample.channelDataCounts);
+    console.log(eegConverted);
   });
   // when Ganglion is ready to offer up the fruits of the psychic organ;
   ganglion.once('ready', () => {

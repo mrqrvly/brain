@@ -31,6 +31,17 @@ app.listen(port, () => {
   lib.log("The OBLSK brain is listening on port 12019");
 });
 
+// monitor oscPort traffic;
+udpPort.on("message", (oscMsg) => {
+  console.log("oscPort traffic: " + oscMsg);
+});
+
+// when a udp connection completes;
+udpPort.on("bundle", (oscBundle, timeTag, info) => {
+  console.log("An OSC bundle just arrived for time tag", timeTag, ":", oscBundle);
+  console.log("Remote info is: ", info);
+});
+
 // Ganglion event triggers;
 ganglion.once('ganglionFound', (peripheral) => {
   // stop searching for BLE devices once a ganglion is found.
@@ -40,6 +51,9 @@ ganglion.once('ganglionFound', (peripheral) => {
     // lib.log(JSON.stringify(sample));
     let eegConverted = lib.convertEegInts(sample.channelDataCounts);
     console.log(eegConverted);
+    // send message via udp(osc) to madmapper/modulate;
+
+    //
   });
   // when Ganglion is ready to offer up the fruits of the psychic organ;
   ganglion.once('ready', () => {

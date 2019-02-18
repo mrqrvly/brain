@@ -43,6 +43,8 @@ ganglion.once('ganglionFound', (peripheral) => {
   });
   // when Ganglion is ready to offer up the fruits of the psychic organ;
   ganglion.once('ready', () => {
+    // open port for communications;
+    udpPort.open();
     ganglion.streamStart();
   });
   // connect Ganglion to the PC etc;

@@ -31,8 +31,8 @@ ganglion.once('ganglionFound', (peripheral) => {
   ganglion.searchStop();
   // when a data sample is received from Ganglion;
   ganglion.on('sample', (sample) => {
-    lib.log(JSON.stringify(sample));
-    findRange(sample.channelDataCounts);
+    // lib.log(JSON.stringify(sample));
+    let eegConverted = lib.convertEegInts(sample.channelDataCounts);
   });
   // when Ganglion is ready to offer up the fruits of the psychic organ;
   ganglion.once('ready', () => {

@@ -34,5 +34,8 @@
     "express": "^4.16.4",
     "moment": "^2.24.0",
     "osc": "^2.2.4"
+  },
+  "dependencies": {
+    "@openbci/utilities": "^1.0.0"
   }
 }

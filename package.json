@@ -29,9 +29,10 @@
   },
   "homepage": "https://github.com/mrqrvly/brain#readme",
   "devDependencies": {
+    "@openbci/ganglion": "^2.0.0",
+    "@openbci/utilities": "^1.0.0",
     "express": "^4.16.4",
     "moment": "^2.24.0",
-    "openbci-ganglion": "^1.2.0",
     "osc": "^2.2.4"
   }
 }

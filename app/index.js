@@ -4,7 +4,7 @@ const lib = require('../lib/lib'),
       express = require('express'),
       app = express(),
       port = 12019//,
-      Ganglion = require('openbci-ganglion'),
+      Ganglion = require('../node_modules/@openbci/ganglion/openBCIGanglion.js'),
       ganglion = new Ganglion({
         verbose: true,
         sendCounts: true
@@ -15,21 +15,19 @@ const lib = require('../lib/lib'),
           localPort: 8081,
           metadata: true
         });
-
-// start;
-lib.log("starting");
+const { constants, debug, utilities } = require('../node_modules/@openbci/utilities');
 
 // routing;
-app.get('/', (req, res) => {
-  res.send('OBLSK Brain is awakening...');
-  // when home route is selected, search for a Ganglion;
-  // ganglion.searchStart();
-});
+// app.get('/', (req, res) => {
+//   res.send('OBLSK Brain is awakening...');
+//   // when home route is selected, search for a Ganglion;
+//   // ganglion.searchStart();
+// });
 
 // start up the express server;
-app.listen(port, () => {
-  lib.log("The OBLSK brain is listening on port 12019");
-});
+// app.listen(port, () => {
+//   lib.log("The OBLSK brain is listening on port 12019");
+// });
 
 // monitor oscPort traffic;
 udpPort.on("message", (oscMsg) => {
